@@ -2,11 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TikToken</title>
+  <title>TikToken — Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 500px;
+      margin: 80px auto;
+      text-align: center;
+    }
+    .login-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .fake-user {
+      margin-top: 40px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+  </style>
 </head>
 <body>
+
   <h1>Welcome to TikToken</h1>
-  <p>Earn points during our TikTok livestreams by liking, gifting, and commenting.</p>
-  <p>Log in with TikTok to view your point balance. Coming soon.</p>
+  <p>Earn points by liking, gifting, and chatting during our TikTok Lives.</p>
+
+  <!-- Заглушка кнопки авторизации -->
+  <a class="login-btn" href="#">Login with TikTok</a>
+
+  <!-- Фейковый блок — как будто пользователь уже авторизовался -->
+  <div class="fake-user">
+    <h2>Hello, @username</h2>
+    <p>You’ve earned:</p>
+    <h1>258 Points 🎉</h1>
+  </div>
+
+  <p style="margin-top: 60px; color: #888; font-size: 12px;">
+    This is a demo page for TikTok Developer review only.
+  </p>
+
 </body>
 </html>
