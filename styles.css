@@ -261,7 +261,7 @@ body {
 .token-added {
   position: absolute;
   color: #FE2C55;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 1000;
   opacity: 0;
   text-shadow: 0 0 8px rgba(254, 44, 85, 0.5);
