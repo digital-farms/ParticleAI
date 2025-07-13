@@ -19,6 +19,7 @@
       text-decoration: none;
       border-radius: 8px;
       margin-top: 20px;
+      cursor: pointer;
     }
     .fake-user {
       margin-top: 40px;
@@ -26,6 +27,7 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       background-color: #f9f9f9;
+      display: none;
     }
   </style>
 </head>
@@ -34,11 +36,11 @@
   <h1>Welcome to TikToken</h1>
   <p>Earn points by liking, gifting, and chatting during our TikTok Lives.</p>
 
-  <!-- Заглушка кнопки авторизации -->
-  <a class="login-btn" href="#">Login with TikTok</a>
+  <!-- Кнопка логина -->
+  <a class="login-btn" id="loginButton">Login with TikTok</a>
 
-  <!-- Фейковый блок — как будто пользователь уже авторизовался -->
-  <div class="fake-user">
+  <!-- Блок, который появляется после "логина" -->
+  <div class="fake-user" id="userBlock">
     <h2>Hello, @username</h2>
     <p>You’ve earned:</p>
     <h1>258 Points 🎉</h1>
@@ -47,6 +49,14 @@
   <p style="margin-top: 60px; color: #888; font-size: 12px;">
     This is a demo page for TikTok Developer review only.
   </p>
+
+  <script>
+    // При клике на кнопку — показать блок, скрыть кнопку
+    document.getElementById("loginButton").addEventListener("click", function () {
+      document.getElementById("loginButton").style.display = "none";
+      document.getElementById("userBlock").style.display = "block";
+    });
+  </script>
 
 </body>
 </html>
