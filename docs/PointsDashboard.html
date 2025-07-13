@@ -10,6 +10,7 @@
       margin: 80px auto;
       text-align: center;
     }
+
     .login-btn {
       display: inline-block;
       padding: 12px 24px;
@@ -21,6 +22,21 @@
       margin-top: 20px;
       cursor: pointer;
     }
+
+    .loader {
+      display: none;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #555;
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+
     .fake-user {
       margin-top: 40px;
       padding: 20px;
@@ -36,10 +52,10 @@
   <h1>Welcome to TikToken</h1>
   <p>Earn points by liking, gifting, and chatting during our TikTok Lives.</p>
 
-  <!-- Кнопка логина -->
   <a class="login-btn" id="loginButton">Login with TikTok</a>
 
-  <!-- Блок, который появляется после "логина" -->
+  <div class="loader" id="loader">Logging in…</div>
+
   <div class="fake-user" id="userBlock">
     <h2>Hello, @username</h2>
     <p>You’ve earned:</p>
@@ -51,10 +67,16 @@
   </p>
 
   <script>
-    // При клике на кнопку — показать блок, скрыть кнопку
     document.getElementById("loginButton").addEventListener("click", function () {
+      // Скрыть кнопку, показать "загрузку"
       document.getElementById("loginButton").style.display = "none";
-      document.getElementById("userBlock").style.display = "block";
+      document.getElementById("loader").style.display = "block";
+
+      // Через 2.5 секунды — показать блок с поинтами
+      setTimeout(function () {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("userBlock").style.display = "block";
+      }, 2500);
     });
   </script>
 
