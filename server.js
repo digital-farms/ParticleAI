@@ -8,6 +8,10 @@ const PORT = 3030;
 const DATA_FILE = path.join(__dirname, 'data.json');
 const app = express();
 app.use(express.static(__dirname));
+// Проксируем data.json для dashboard
+app.get('/dashboard/data.json', (req, res) => {
+  res.sendFile(DATA_FILE);
+});
 
 // --- Локальная база ---
 let db = { users: {} };

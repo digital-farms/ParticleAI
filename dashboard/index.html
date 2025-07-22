@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=350, initial-scale=1.0">
+  <title>PARTICLE Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🎵</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: 0.6em;">Welcome to PARTICLE</h1>
+    <div class="info-banner" style="margin-bottom: 1.5em;">
+      Track your engagement in our TikTok Lives and earn points for likes, gifts, and comments.
+    </div>
+    <form id="check-form" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:18px;">
+      <input id="username" type="text" placeholder="@username" required pattern="^@?[a-zA-Z0-9._-]{2,32}$" maxlength="32" autocomplete="off" style="width:90%;padding:12px 14px;border-radius:12px;border:1.5px solid #25F4EE;background:#23272f;color:#fff;font-size:1.1em;outline:none;" oninvalid="this.setCustomValidity('Введите никнейм в формате @username (буквы, цифры, точка, _ или -)')" oninput="this.setCustomValidity('')">
+      <button type="submit" style="width:100%;padding:13px 0;border-radius:12px;background:#25F4EE;color:#181c23;font-weight:700;font-size:1.13em;border:none;cursor:pointer;transition:background 0.2s;">Check my points</button>
+      <button id="tiktok-login" type="button" style="width:100%;padding:13px 0;margin-top:10px;border-radius:12px;background:#010101;color:#25F4EE;font-weight:700;font-size:1.13em;border:2px solid #25F4EE;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background 0.2s;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M21.5 7.5c-2.37 0-4.3-1.93-4.3-4.3h-2.07v14.11c0 1.41-1.14 2.55-2.55 2.55s-2.55-1.14-2.55-2.55 1.14-2.55 2.55-2.55c.23 0 .46.03.67.1v-2.09a5.07 5.07 0 0 0-.67-.05c-2.56 0-4.64 2.08-4.64 4.64s2.08 4.64 4.64 4.64 4.64-2.08 4.64-4.64v-6.1c1.24 1.03 2.82 1.65 4.3 1.65v-2.1z" fill="#25F4EE"/><path d="M21.5 7.5c-2.37 0-4.3-1.93-4.3-4.3h-2.07v14.11c0 1.41-1.14 2.55-2.55 2.55s-2.55-1.14-2.55-2.55 1.14-2.55 2.55-2.55c.23 0 .46.03.67.1v-2.09a5.07 5.07 0 0 0-.67-.05c-2.56 0-4.64 2.08-4.64 4.64s2.08 4.64 4.64 4.64 4.64-2.08 4.64-4.64v-6.1c1.24 1.03 2.82 1.65 4.3 1.65v-2.1z" fill="#FE2C55" fill-opacity=".8"/></svg>
+        Login with TikTok
+      </button>
+    </form>
+    <div id="result" style="margin-top:2em;width:100%;text-align:center;font-size:1.13em;"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
