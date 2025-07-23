@@ -21,7 +21,7 @@ if (fs.existsSync(DATA_FILE)) {
 function saveDB() { fs.writeFileSync(DATA_FILE, JSON.stringify(db, null, 2)); }
 
 // --- TikTok-Live-Connector ---
-const tiktokUsername = process.env.TIKTOK_USERNAME || 'emma_louisa_asmr';
+const tiktokUsername = process.env.TIKTOK_USERNAME || 'bxlormobile';
 const connector = new WebcastPushConnection(tiktokUsername);
 
 connector.connect().then(state => {
@@ -63,6 +63,33 @@ connector.on('like', data => {
   }
 });
 
+// --- Обработка комментариев ---
+connector.on('chat', data => {
+  const userId = data.userId;
+  const nickname = data.uniqueId || data.nickname || 'Anonymous';
+  if (!db.users[userId]) {
+    db.users[userId] = { nickname, avatar: '', likes: 0, points: 0, comments: 0 };
+  }
+  db.users[userId].comments = (db.users[userId].comments || 0) + 1;
+  saveDB();
+  console.log(`[COMMENT] @${nickname}: ${db.users[userId].comments} комментов.`);
+});
+
+// --- Обработка репостов ---
+connector.on('share', data => {
+  const userId = data.userId;
+  const nickname = data.uniqueId || data.nickname || 'Anonymous';
+  if (!db.users[userId]) {
+    db.users[userId] = { nickname, avatar: '', likes: 0, points: 0, shares: 0 };
+  }
+  db.users[userId].shares = (db.users[userId].shares || 0) + 1;
+  saveDB();
+  // Логируем каждое 5-е действие share
+  if (db.users[userId].shares % 5 === 0) {
+    console.log(`[SHARE] @${nickname}: ${db.users[userId].shares} репостов.`);
+  }
+});
+
 // --- Обработка подарков ---
 connector.on('gift', data => {
   const userId = data.userId;
@@ -82,7 +109,7 @@ connector.on('gift', data => {
   db.users[userId].giftsSent = (db.users[userId].giftsSent || 0) + repeatCount;
 
   saveDB();
-  console.log(`[GIFT] @${nickname} отправил подарок '${giftName}' (id:${giftId}) x${repeatCount} => +${1000 * repeatCount} поинтов. Всего: ${db.users[userId].points} поинтов, ${db.users[userId].giftsSent} подарков.`);
+  console.log(`[GIFT] @${nickname} отправил подарок '${giftName}' (id:${giftId}) x${repeatCount}. Всего: ${db.users[userId].points} поинтов, ${db.users[userId].giftsSent} подарков.`);
 });
 
 // --- API для фронта ---
