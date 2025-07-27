@@ -146,7 +146,7 @@ window.addEventListener('DOMContentLoaded', function() {
       // TOKENS MINED
       const mined = document.querySelector('.stat-card .stat-value');
       if (mined) {
-        const newTotalLikes = data.totalLikes;
+        const newTotalLikes = data.pointsMined;
         let diff = 0;
         if (previousTotalLikes !== null) {
           diff = newTotalLikes - previousTotalLikes;
@@ -195,7 +195,7 @@ window.addEventListener('DOMContentLoaded', function() {
               <img src="${u.avatar}" alt="avatar" style="width:28px;height:28px;border-radius:50%;object-fit:cover;background:#222;margin-right:4px;">
               <span>${u.nickname}</span>
             </span>
-            <span>${u.likes.toLocaleString()}</span>
+            <span>${(u.points || 0).toLocaleString()}</span>
           `;
           lbList.appendChild(row);
         });
