@@ -27,6 +27,33 @@ body {
   align-items: center;
 }
 
+/* Красный для PRTCL */
+.prtcl-red {
+  color: #FE2C55;
+  font-weight: 700;
+}
+
+/* Бегущая строка с курсами поинтов */
+.points-marquee-wrapper {
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: -10px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #181c23 0%, #23272f 100%);
+  box-shadow: 0 2px 8px 0 #00000022;
+}
+.points-marquee {
+  color: #25F4EE;
+  font-size: 1.07em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 7px 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  border-radius: 14px;
+  background: none;
+}
+
 /* Верхний баннер с подсказкой */
 .info-banner {
   background: #25F4EE;
@@ -34,8 +61,8 @@ body {
   border-radius: 14px 14px 0 0;
   font-weight: 700;
   letter-spacing: 0.02em;
-  border-bottom: 2px solid #FE2C55;
-  border-top: 2px solid #25F4EE;
+/* border-bottom: 2px solid #FE2C55;
+  border-top: 2px solid #25F4EE; */
 
   background: rgba(36, 42, 52, 0.92);
   border-radius: 16px;
@@ -85,7 +112,7 @@ body {
 /* Одна карточка статистики (tokens/miners) */
 .stat-card {
   background: #111;
-  border: 2px solid #25F4EE;
+/* border: 2px solid #25F4EE; */
   border-radius: 12px;
   box-shadow: 0 2px 12px 0 #25F4EE33;
 
@@ -111,7 +138,7 @@ body {
   color: #25F4EE;
   font-weight: 700;
 
-  color: #8d95a7;
+  color: #bfc7d5;
   font-size: 1.04rem;
   font-family: 'Montserrat', 'Arial', sans-serif;
   font-weight: 600;
@@ -125,7 +152,7 @@ body {
 .stat-value {
   position: relative;
 
-  color: #eaf0ff;
+  color: #25F4EE;
   font-weight: 800;
   cursor: pointer;
   font-size: 1.5rem;
@@ -144,7 +171,7 @@ body {
 /* Карточка таблицы лидеров */
 .leaderboard-card {
   background: #111;
-  border: 2px solid #FE2C55;
+/* border: 2px solid #FE2C55; */
   border-radius: 16px;
   box-shadow: 0 2px 18px 0 #FE2C5533;
 
@@ -159,9 +186,9 @@ body {
 .leaderboard-title {
   color: #FE2C55;
   font-weight: 800;
-  border-bottom: 2px solid #25F4EE;
+/* border-bottom: 2px solid #25F4EE; */
 
-  color: #8d95a7;
+  color: #bfc7d5;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-align: center;
@@ -214,7 +241,7 @@ body {
   min-width: 0;
 }
 .leaderboard-row img {
-  border: 2px solid #FE2C55;
+  border: 2px solid #25F4EE;
 
   width: 28px;
   height: 28px;
@@ -225,10 +252,10 @@ body {
   flex-shrink: 0;
 }
 .leaderboard-row > span:last-child {
-  color: #FE2C55;
+  color: #25F4EE;
 
   width: 4em;
-  text-align: right;
+  text-align: left;
   flex-shrink: 0;
   color: #bfc7d5;
   padding: 2px 0;
@@ -237,23 +264,24 @@ body {
 /* Номер в строке лидеров */
 .leaderboard-row span:first-child {
   width: 22px;
-  color: #7f8aad;
+  color: #25F4EE;
   font-weight: 700;
   text-align: left;
 }
 
 /* Имя в строке лидеров */
 .leaderboard-row span:nth-child(2) {
-  flex: 1;
+  flex: 5;
   text-align: left;
-  margin-left: 8px;
+  color: #25F4EE;
+  margin-left: 0px;
 }
 
 /* Баллы в строке лидеров */
 .leaderboard-row span:last-child {
   min-width: 70px;
   text-align: right;
-  color: #e5e9f7;
+  color: #FE2C55;
   font-weight: 600;
 }
 
