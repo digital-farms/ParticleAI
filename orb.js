@@ -138,6 +138,22 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }, 1000);
 
+  // --- PRTCL/s RATE обновление ---
+  function updatePRTCLRate() {
+    const statCards = document.querySelectorAll('.stat-card');
+    for (const card of statCards) {
+      const label = card.querySelector('.stat-label');
+      const value = card.querySelector('.stat-value');
+      if (label && value && label.textContent.trim() === 'PRTCL/s RATE') {
+        // Здесь может быть любой источник данных, сейчас — случайное число для примера
+        const randomRate = Math.floor(Math.random() * 41) + 10; // 10..50
+        value.textContent = randomRate;
+      }
+    }
+  }
+  setInterval(updatePRTCLRate, 5000);
+  updatePRTCLRate();
+
   async function updateStats() {
     try {
       const res = await fetch('/api/stats');
@@ -218,7 +234,7 @@ window.addEventListener('DOMContentLoaded', function() {
       // ignore
     }
   }
-  setInterval(updateStats, 2000);
+  setInterval(updateStats, 1000);
   updateStats();
 
 

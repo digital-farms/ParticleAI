@@ -23,7 +23,7 @@ if (fs.existsSync(DATA_FILE)) {
 function saveDB() { fs.writeFileSync(DATA_FILE, JSON.stringify(db, null, 2)); }
 
 // --- TikTok-Live-Connector v2 ---
-const tiktokUsername = process.env.TIKTOK_USERNAME || "arlequinasmr";
+const tiktokUsername = process.env.TIKTOK_USERNAME || "raul_asmr_official";
 const connection = new TikTokLiveConnection(tiktokUsername);
 
 connection.connect().then(() => {
